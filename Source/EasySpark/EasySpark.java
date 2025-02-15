@@ -71,7 +71,7 @@ public class EasySpark {
 
     public double getPos() {
         if (this.DutyCycleEncoder != null) {
-            return this.DutyCycleEncoder.get();
+            return this.DutyCycleEncoder.get() * 360;
         } else if (this.CANcoder != null) {
             return this.CANcoder.getAbsolutePosition().getValueAsDouble();
         } else {
