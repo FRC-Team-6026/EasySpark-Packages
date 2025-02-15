@@ -1,10 +1,6 @@
-package frc.lib.configs.Sparkmax;
+package com.easyspark.frc;
 
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
-
-import frc.lib.util.CANSparkMaxUtil.Usage;
-import frc.lib.EasySpark.EasySparkControllerInfo;
-import frc.lib.EasySpark.EasySparkConstants;
 
 public class SparkControllerInfo {
     public Usage canbusUse;

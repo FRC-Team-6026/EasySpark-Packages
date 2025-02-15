@@ -6,11 +6,7 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkClosedLoopController;
 
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
-
 import com.ctre.phoenix6.hardware.CANcoder;
-
-import frc.lib.Items.SparkMax.SparkController;
-import frc.lib.configs.Sparkmax.SparkControllerInfo;
 
 public class EasySpark {
 
