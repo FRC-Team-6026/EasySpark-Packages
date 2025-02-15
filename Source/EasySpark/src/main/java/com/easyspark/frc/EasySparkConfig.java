@@ -1,6 +1,5 @@
 package com.easyspark.frc;
 
-import frc.lib.configs.Sparkmax.SparkControllerInfo;
 import com.ctre.phoenix6.hardware.CANcoder;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 

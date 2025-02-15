@@ -1,7 +1,5 @@
 package com.easyspark.frc;
 
-import frc.lib.configs.Sparkmax.SparkControllerInfo;
-
 public class EasySparkControllerInfo {
 
     public SparkControllerInfo scInfo;

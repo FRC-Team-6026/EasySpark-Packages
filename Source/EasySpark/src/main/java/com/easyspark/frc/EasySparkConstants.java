@@ -1,10 +1,11 @@
 package com.easyspark.frc;
 
-import frc.lib.util.CANSparkMaxUtil.Usage;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import java.util.Map;
 import java.util.HashMap;
+
+import com.easyspark.frc.CANSparkMaxUtil.Usage;
 
 /**
  * Creates an object containing all the default spark constants.

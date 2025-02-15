@@ -1,5 +1,7 @@
 package com.easyspark.frc;
 
+import com.easyspark.frc.CANSparkMaxUtil.Usage;
+
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 public class SparkControllerInfo {
