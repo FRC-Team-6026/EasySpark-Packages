@@ -1,4 +1,4 @@
-package frc.lib.EasySpark;
+package com.easyspark.frc;
 
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkMax;

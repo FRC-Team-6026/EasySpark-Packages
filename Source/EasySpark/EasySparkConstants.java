@@ -1,4 +1,4 @@
-package frc.lib.EasySpark;
+package com.easyspark.frc;
 
 import frc.lib.util.CANSparkMaxUtil.Usage;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;

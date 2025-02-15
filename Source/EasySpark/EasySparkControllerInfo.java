@@ -1,4 +1,4 @@
-package frc.lib.EasySpark;
+package com.easyspark.frc;
 
 import frc.lib.configs.Sparkmax.SparkControllerInfo;
 
