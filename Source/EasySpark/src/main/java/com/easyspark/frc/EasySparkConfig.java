@@ -8,31 +8,29 @@ import edu.wpi.first.wpilibj.DutyCycleEncoder;
  * 
  * @param id The ID used by the SparkMax on the CAN bus.
  * @param name The name given for the motor/subsystem.
- * @param scInfo This is the info used to create a SparkMax instance.
- * @param constants The constants object created for the subsystem. See {@linkplain EasySparkControllerInfo} for more info.
+ * @param escInfo This is the info used to create a SparkMax instance.
  * @param CANcoder A CANcoder object. Set to null by default.
- * @param DutyCycleEncoder An Absolute Encoder. Set to null by defualt.
+ * @param DutyCycleEncoder An Absolute Encoder. Set to null by default.
  * 
  * @see EasySpark
  * @see EasySparkConstants
  */
-public record EasySparkConfig(int id, String name, SparkControllerInfo scInfo, CANcoder CANcoder, DutyCycleEncoder DutyCycleEncoder) {
+public record EasySparkConfig(int id, String name, EasySparkControllerInfo escInfo, CANcoder CANcoder, DutyCycleEncoder DutyCycleEncoder) {
 
     /**
      * This is a config object used to create an EasySpark instance.
      * 
      * @param id The ID used by the SparkMax on the CAN bus.
      * @param name The name given for the motor/subsystem.
-     * @param scInfo This is the info used to create a SparkMax instance.
-     * @param constants The constants object created for the subsystem. See {@linkplain EasySparkControllerInfo} for more info.
+     * @param escInfo This is the info used to create a SparkMax instance.
      * @param CANcoder A CANcoder object. Set to null by default.
-     * @param DutyCycleEncoder An Absolute Encoder. Set to null by defualt.
+     * @param DutyCycleEncoder An Absolute Encoder. Set to null by default.
      * 
      * @see EasySpark
      * @see EasySparkConstants
      */
-    public EasySparkConfig(int id, String name, SparkControllerInfo scInfo) {
-        this(id, name, scInfo, null, null);
+    public EasySparkConfig(int id, String name, EasySparkControllerInfo escInfo) {
+        this(id, name, escInfo, null, null);
     }
 
     /**
@@ -40,16 +38,15 @@ public record EasySparkConfig(int id, String name, SparkControllerInfo scInfo, C
      * 
      * @param id The ID used by the SparkMax on the CAN bus.
      * @param name The name given for the motor/subsystem.
-     * @param scInfo This is the info used to create a SparkMax instance.
-     * @param constants The constants object created for the subsystem. See {@linkplain EasySparkControllerInfo} for more info.
+     * @param escInfo This is the info used to create a SparkMax instance.
      * @param CANcoder A CANcoder object. Set to null by default.
-     * @param DutyCycleEncoder An Absolute Encoder. Set to null by defualt.
+     * @param DutyCycleEncoder An Absolute Encoder. Set to null by default.
      * 
      * @see EasySpark
      * @see EasySparkConstants
      */
-    public EasySparkConfig(int id, String name, SparkControllerInfo scInfo, CANcoder CANcoder) {
-        this(id, name, scInfo, CANcoder, null);
+    public EasySparkConfig(int id, String name, EasySparkControllerInfo escInfo, CANcoder CANcoder) {
+        this(id, name, escInfo, CANcoder, null);
     }
 
     /**
@@ -57,16 +54,15 @@ public record EasySparkConfig(int id, String name, SparkControllerInfo scInfo, C
      * 
      * @param id The ID used by the SparkMax on the CAN bus.
      * @param name The name given for the motor/subsystem.
-     * @param scInfo This is the info used to create a SparkMax instance.
-     * @param constants The constants object created for the subsystem. See {@linkplain EasySparkControllerInfo} for more info.
+     * @param escInfo This is the info used to create a SparkMax instance.
      * @param CANcoder A CANcoder object. Set to null by default.
-     * @param DutyCycleEncoder An Absolute Encoder. Set to null by defualt.
+     * @param DutyCycleEncoder An Absolute Encoder. Set to null by default.
      * 
      * @see EasySpark
      * @see EasySparkConstants
      */
-    public EasySparkConfig(int id, String name, SparkControllerInfo scInfo, DutyCycleEncoder DutyCycleEncoder) {
-        this(id, name, scInfo, null, DutyCycleEncoder);
+    public EasySparkConfig(int id, String name, EasySparkControllerInfo escInfo, DutyCycleEncoder DutyCycleEncoder) {
+        this(id, name, escInfo, null, DutyCycleEncoder);
     }
 
 }

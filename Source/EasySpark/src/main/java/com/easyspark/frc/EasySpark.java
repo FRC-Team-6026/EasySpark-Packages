@@ -47,10 +47,10 @@ public class EasySpark {
     public EasySpark(EasySparkConfig config) {
         this.id = config.id();
         this.name = config.name();
-        this.scInfo = config.scInfo().scInfo;
-        this.constants = config.scInfo().constants;
+        this.scInfo = config.escInfo().scInfo;
+        this.constants = config.escInfo().constants;
 
-        SparkController controller = new SparkController(config.id(), config.scInfo());
+        SparkController controller = new SparkController(this.id, this.scInfo);
 
         this.controller = controller;
         this.spark = controller.spark;
