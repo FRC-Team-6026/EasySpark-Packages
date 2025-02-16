@@ -1,0 +1,18 @@
+[
+  {
+    "uuid": "ce152c0a-8db3-40c2-9968-3627a7d5d4de",
+    "name": "EasySpark",
+    "description": "A java library designed to make using SparkMax Controllers much easier.",
+    "website": "https://frc-6026.gitbook.io/easyspark",
+    "version": "1.0.0",
+    "path": "2025/EasySpark-1.0.0.json"
+  },
+  {
+    "uuid": "ce152c0a-8db3-40c2-9968-3627a7d5d4de",
+    "name": "EasySpark",
+    "description": "A java library designed to make using SparkMax Controllers much easier.",
+    "website": "https://frc-6026.gitbook.io/easyspark",
+    "version": "1.0.1-Beta",
+    "path": "2025/EasySpark-1.0.1-Beta.json"
+  }
+]
