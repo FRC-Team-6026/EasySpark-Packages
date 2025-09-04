@@ -1,4 +1,4 @@
-package com.easyspark.frc;
+package com.drift.frc;
 
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkMax;
@@ -8,20 +8,16 @@ import com.revrobotics.spark.SparkClosedLoopController;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import com.ctre.phoenix6.hardware.CANcoder;
 
-public class EasySpark {
+public class Module {
 
     public int id;
     public String name;
-    public SparkMax spark;
-    public SparkControllerInfo scInfo;
-    public EasySparkConstants constants;
+    public Config config;
 
-    public SparkController controller;
-    public RelativeEncoder encoder;
-    public SparkClosedLoopController PIDcontroller;
-
-    public CANcoder CANcoder;
-    public DutyCycleEncoder DutyCycleEncoder;
+    public Motor motor;
+    public Controller controller;
+    public Encoder encoder;
+    public FeedbackController feedback;
     
     /**
      * This creates an instance of EasySpark. It contains the SparkMax configuration mess
@@ -29,22 +25,16 @@ public class EasySpark {
      * 
      * @param id Idk why you would need this but the ID is here.
      * @param name Same as above.
-     * @param scInfo Gives the SparkControllerInfo of the SparkMax.
-     * @param constants Gives the constants of the motor/subsystem.
+     * @param config Gives the constants of the motor/subsystem.
      * 
+     * @param motor Is a SparkMax Object.
      * @param controller Returns the SparkController object of the SparkMax.
-     * @param spark Is a SparkMax Object.
      * @param encoder Returns the RelativeEncoder of said SparkMax.
-     * @param PIDcontroller Returns the PIDController of the SparkMax.
+     * @param feedback Returns the PIDController of the SparkMax.
      * 
-     * @param CANcoder If there is a CANcoder, this will return the CANcoder.
-     * @param DutyCycleEncoder If there is an Absolute Encoder, this will return it.
-     * 
-     * @see EasySparkConfig
-     * @see EasySparkConstants
-     * @see EasySparkControllerInfo
+     * @see Config
      */
-    public EasySpark(EasySparkConfig config) {
+    public EasySpark(Config config) {
         this.id = config.id();
         this.name = config.name();
         this.scInfo = config.escInfo().scInfo;
@@ -85,11 +75,6 @@ public class EasySpark {
 
 
     
-
-
-
-
-
     public void setDutyCycle(double percent) {
         percent = percent/100;
         PIDcontroller.setReference(percent, SparkBase.ControlType.kDutyCycle);
