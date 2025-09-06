@@ -7,17 +7,16 @@ import com.revrobotics.spark.SparkClosedLoopController;
 
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import com.ctre.phoenix6.hardware.CANcoder;
+import com.drift.frc.utils.Parts.*;
 
 public class Module {
 
     public int id;
     public String name;
-    public Config config;
 
     public Motor motor;
     public Controller controller;
-    public Encoder encoder;
-    public FeedbackController feedback;
+    public Sensor encoder;
     
     /**
      * This creates an instance of EasySpark. It contains the SparkMax configuration mess
@@ -30,29 +29,14 @@ public class Module {
      * @param motor Is a SparkMax Object.
      * @param controller Returns the SparkController object of the SparkMax.
      * @param encoder Returns the RelativeEncoder of said SparkMax.
-     * @param feedback Returns the PIDController of the SparkMax.
      * 
      * @see Config
      */
-    public EasySpark(Config config) {
-        this.id = config.id();
-        this.name = config.name();
-        this.scInfo = config.escInfo().scInfo;
-        this.constants = config.escInfo().constants;
+    public Module(int id, String name, Config config) {
+        this.id = id;
+        this.name = name;
 
-        SparkController controller = new SparkController(this.id, this.scInfo);
-
-        this.controller = controller;
-        this.spark = controller.spark;
-        this.encoder = controller.sparkEncode;
-        this.PIDcontroller = controller.sparkControl;
-
-        if (config.CANcoder() != null) {
-            this.CANcoder = config.CANcoder();
-        }
-        if (config.DutyCycleEncoder() != null) {
-            this.DutyCycleEncoder = config.DutyCycleEncoder();
-        }
+        
     }
 
     public double getPos() {
@@ -73,8 +57,6 @@ public class Module {
         }
     }
 
-
-    
     public void setDutyCycle(double percent) {
         percent = percent/100;
         PIDcontroller.setReference(percent, SparkBase.ControlType.kDutyCycle);

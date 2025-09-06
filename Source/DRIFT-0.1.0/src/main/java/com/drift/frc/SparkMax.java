@@ -1,5 +1,7 @@
 package com.drift.frc;
 
+import com.revrobotics.spark.config.SparkMaxConfig;
+
 public class SparkMax {
     SparkMaxConfig config = new SparkMaxConfig();
 
