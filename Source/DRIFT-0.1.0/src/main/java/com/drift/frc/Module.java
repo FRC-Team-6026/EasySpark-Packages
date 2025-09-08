@@ -6,17 +6,19 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkClosedLoopController;
 
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
+
 import com.ctre.phoenix6.hardware.CANcoder;
-import com.drift.frc.utils.Parts.*;
+import com.drift.frc.utils.Parts;
+import com.drift.frc.utils.Types;
 
 public class Module {
 
     public int id;
     public String name;
 
-    public Motor motor;
-    public Controller controller;
-    public Sensor encoder;
+    public Parts.Motor motor;
+    public Parts.Controller controller;
+    public Parts.Encoder encoder;
     
     /**
      * This creates an instance of EasySpark. It contains the SparkMax configuration mess
@@ -32,47 +34,52 @@ public class Module {
      * 
      * @see Config
      */
-    public Module(int id, String name, Config config) {
+    public Module(int id, String name, Types.Motor motorType, Types.Controller controllerType, Types.Encoder encoderType, Config config) {
         this.id = id;
         this.name = name;
 
-        
+        Parts parts = new Parts();
+        parts.Validate(motorType, controllerType, encoderType);
+        parts.CreateModule(motorType, controllerType, encoderType);
+        motor = parts.getMotor();
+        controller = parts.getController();
+        encoder = parts.getEncoder();
     }
 
-    public double getPos() {
-        if (this.DutyCycleEncoder != null) {
-            return this.DutyCycleEncoder.get();
-        } else if (this.CANcoder != null) {
-            return this.CANcoder.getAbsolutePosition().getValueAsDouble();
-        } else {
-            return this.encoder.getPosition();
-        }
-    }
+    // public double getPos() {
+    //     if (this.DutyCycleEncoder != null) {
+    //         return this.DutyCycleEncoder.get();
+    //     } else if (this.CANcoder != null) {
+    //         return this.CANcoder.getAbsolutePosition().getValueAsDouble();
+    //     } else {
+    //         return this.encoder.getPosition();
+    //     }
+    // }
 
-    public double getVel() {
-        if (this.CANcoder != null) {
-            return this.CANcoder.getVelocity().getValueAsDouble() * 60;
-        } else {
-            return this.encoder.getVelocity();
-        }
-    }
+    // public double getVel() {
+    //     if (this.CANcoder != null) {
+    //         return this.CANcoder.getVelocity().getValueAsDouble() * 60;
+    //     } else {
+    //         return this.encoder.getVelocity();
+    //     }
+    // }
 
-    public void setDutyCycle(double percent) {
-        percent = percent/100;
-        PIDcontroller.setReference(percent, SparkBase.ControlType.kDutyCycle);
-    }
+    // public void setDutyCycle(double percent) {
+    //     percent = percent/100;
+    //     PIDcontroller.setReference(percent, SparkBase.ControlType.kDutyCycle);
+    // }
 
-    public void setVoltage(double voltage) {
-        if(voltage < -constants.maxVoltage){
-            voltage = -constants.maxVoltage;
-        } else if (voltage > constants.maxVoltage){
-            voltage = constants.maxVoltage;
-        }
-        PIDcontroller.setReference(voltage, SparkBase.ControlType.kVoltage);
-    }
+    // public void setVoltage(double voltage) {
+    //     if(voltage < -constants.maxVoltage){
+    //         voltage = -constants.maxVoltage;
+    //     } else if (voltage > constants.maxVoltage){
+    //         voltage = constants.maxVoltage;
+    //     }
+    //     PIDcontroller.setReference(voltage, SparkBase.ControlType.kVoltage);
+    // }
 
-    public void setPosition(double position) {
-        PIDcontroller.setReference(position, SparkMax.ControlType.kPosition);
-    }
+    // public void setPosition(double position) {
+    //     PIDcontroller.setReference(position, SparkMax.ControlType.kPosition);
+    // }
     
 } 

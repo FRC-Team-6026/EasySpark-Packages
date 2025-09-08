@@ -20,24 +20,29 @@ public class Types {
         DENSO_SEAT_MOTOR,
 
         RS550,
-        RS775
+        RS775,
+
+        GENERIC_BRUSHLESS,
+        GENERIC_BRUSHED
     }
 
     public enum Controller {
-        INTEGRATED,
-
         REV_SPARK,
         REV_SPARK_MAX,
         REV_SPARK_FLEX,
+        REV_SPARK_MINI,
 
         VEX_JAGUAR,
 
         CTRE_TALON_FX,
         CTRE_TALON_SRX,
-        CTRE_VICTOR_SPX
+        CTRE_VICTOR_SPX,
+
+        GENERIC_BRUSHLESS,
+        GENERIC_BRUSHED
     }
 
-    public enum Sensor {
+    public enum Encoder {
         INTEGRATED,
 
         REV_THROUGH_BORE,
@@ -45,12 +50,20 @@ public class Types {
 
         VEX_OPTICAL,
 
+        CTRE_SRX_MAG,
         CTRE_CANCODER,
+
+        ANDYMARK_MAG,
+        ANDYMARK_CIMCODER,
+        GRAYHILL_63R,
+        MA3_ABSOLUTE,
 
         USDIGITAL_E4T,
         USDIGITAL_E4P,
         USDIGITAL_S5,
 
-        POTENTIOMETER
+        DUTYCYCLE,
+        QUADRATURE,
+        ANALOG
     }
 }
